@@ -16,6 +16,22 @@ class EnderecoDao {
     function __destruct() {
         $this->conn->close();
     }
+
+    // Lista todos os registros da tabela 'endereco' do BD
+    function listarTodosEnderecos() {
+        $sql = "SELECT * FROM endereco";
+        $result = $this->conn->query($sql);
+        if($result->num_rows > 0) {
+            $enderecos = [];
+            while($row = $result->fetch_assoc()) {
+                $endereco = ["id"=>$row["id"], "cep"=>$row["cep"], "numero"=>$row["numero"], "complemento"=>$row["complemento"]];
+                array_push($enderecos, $endereco);
+            }
+            echo json_encode($enderecos);
+        } else {
+            echo "0 resultados encontrados";
+        }
+    }
 }
 
 ?>
