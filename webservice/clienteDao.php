@@ -61,6 +61,17 @@ class ClienteDao {
         }
         return json_encode($status);
     }
+
+    // Deleta registro correspondente ao ID informado, da tabela 'cliente' do BD
+    function deletarCliente($Cliente) {
+        $sql = "DELETE FROM cliente WHERE id = '".$Cliente->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
