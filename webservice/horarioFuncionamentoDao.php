@@ -74,6 +74,17 @@ class HorarioFuncionamento {
         }
         return json_encode($status);
     }
+
+    // Deleta registro correspondente ao ID informado, da tabela 'horario_funcionamento' do BD
+    function deletarHorarioFuncionamento($HorarioFuncionamento) {
+        $sql = "DELETE FROM horario_funcionamento WHERE id = '".$HorarioFuncionamento->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
