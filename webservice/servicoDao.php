@@ -84,6 +84,20 @@ class ServicoDao {
         }
         return json_encode($status);
     }
+
+    // Atualiza registro correspondente ao ID informado, da tabela 'servico' do BD
+    function atualizarServico($Servico) {
+        $sql = "UPDATE servico 
+                SET fk_studio_id='".$Servico->getFkStudioId()."', nome='".$Servico->getNome()."', descricao='".$Servico->getDescricao()."',
+                preco='".$Servico->getPreco()."', tempo_medio='".$Servico->getTempoMedio()."', 
+                WHERE id='".$Servico->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
