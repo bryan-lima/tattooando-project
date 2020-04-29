@@ -112,6 +112,20 @@ class AgendamentoDao {
         }
         return json_encode($status);
     }
+
+    // Atualiza registro correspondente ao ID informado, da tabela 'agendamento' do BD
+    function atualizarAgendamento($Agendamento) {
+        $sql = "UPDATE agendamento 
+                SET fk_cliente_id='".$Agendamento->getFkClienteId()."', fk_servico_id='".$Agendamento->getFkServicoId()."', 
+                data_agendada='".$Agendamento->getDataAgendada()."', hora_agendada='".$Agendamento->getHoraAgendada()."', status='".$Agendamento->getStatus()."' 
+                WHERE id='".$Cliente->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
