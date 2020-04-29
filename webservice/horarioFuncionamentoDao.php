@@ -60,6 +60,20 @@ class HorarioFuncionamento {
             echo "0 resultados encontrados";
         }
     }
+
+    // Insere novo registro na tabela 'horario_funcionamento' do BD
+    function inserirHorarioFuncionamento($HorarioFuncionamento) {
+        $sql = "INSERT INTO horario_funcionamento (fk_studio_id, dias_aberto, hr_semana_inicio, hr_semana_fim, hr_fim_semana_inicio, hr_fim_semana_fim)
+            VALUES ('".$HorarioFuncionamento->getFkStudioId()."', '".$HorarioFuncionamento->getDiasAberto()."', 
+            '".$HorarioFuncionamento->getHrSemanaInicio()."', '".$HorarioFuncionamento->getHrSemanaFim()."', 
+            '".$HorarioFuncionamento->getHrFimSemanaInicio()."', '".$HorarioFuncionamento->getHrFimSemanaFim()."')";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->erro];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
