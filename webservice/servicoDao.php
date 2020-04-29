@@ -73,6 +73,17 @@ class ServicoDao {
         }
         return json_encode($status);
     }
+
+    // Deleta registro correspondente ao ID informado, da tabela 'servico' do BD
+    function deletarServico($Servico) {
+        $sql = "DELETE FROM servico WHERE id = '".$Servico->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
