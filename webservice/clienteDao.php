@@ -72,6 +72,21 @@ class ClienteDao {
         }
         return json_encode($status);
     }
+
+    // Atualiza registro correspondente ao ID informado, da tabela 'cliente' do BD
+    function atualizarCliente($Cliente) {
+        $sql = "UPDATE cliente 
+                SET tipo_usuario='".$Cliente->getTipoUsuario()."', nome='".$Cliente->getNome()."',  cpf='".$Cliente->getCpf()."',
+                nascimento='".$Cliente->getNascimento()."', telefone='".$Cliente->getTelefone()."', email='".$Cliente->getEmail()."',
+                senha='".$Cliente->getSenha()."', fk_endereco_id='".$Cliente->getFkEnderecoId()."' 
+                WHERE id='".$Cliente->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
