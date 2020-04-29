@@ -70,6 +70,20 @@ class StudioDao {
         }
         return json_encode($status);
     }
+
+    // Atualiza registro correspondente ao ID informado, da tabela 'studio' do BD
+    function atualizarStudio($Studio) {
+        $sql = "UPDATE studio 
+                SET tipo_usuario='".$Studio->getTipoUsuario()."', nome='".$Studio->getNome()."',  cnpj='".$Studio->getCnpj()."',
+                telefone='".$Studio->getTelefone()."', email='".$Studio->getEmail()."', senha='".$Studio->getSenha()."', fk_endereco_id='".$Studio->getFkEnderecoId()."' 
+                WHERE id='".$Studio->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
