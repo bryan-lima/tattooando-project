@@ -60,6 +60,19 @@ class ServicoDao {
             echo "0 resultados encontrados";
         }
     }
+
+    // Insere novo registro na tabela 'servico' do BD
+    function inserirServico($Servico) {
+        $sql = "INSERT INTO servico (fk_studio_id, nome, descricao, preco, tempo_medio)
+            VALUES ('".$Servico->getFkStudioId()."', '".$Servico->getNome()."', '".$Servico->getDescricao()."',
+            '".$Servico->getPreco()."', '".$Servico->getTempoMedio()."')";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->erro];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
