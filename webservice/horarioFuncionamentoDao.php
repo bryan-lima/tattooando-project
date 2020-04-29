@@ -46,6 +46,20 @@ class HorarioFuncionamento {
             echo "0 resultados encontrados";
         }
     }
+
+    // Lista registro correspondente ao ID do Studio informado, da tabela 'horario_funcionamento' do BD
+    function listarHorarioFuncionamentoPorStudio($fkStudioId) {
+        $sql = "SELECT * FROM horario_funcionamento WHERE fk_studio_id=$fkStudioId";
+        $result = $this->conn->query($ql);
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $value = json_encode($row);
+                echo($value);
+            }
+        } else {
+            echo "0 resultados encontrados";
+        }
+    }
 }
 
 ?>
