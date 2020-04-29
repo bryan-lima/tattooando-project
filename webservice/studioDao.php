@@ -46,6 +46,19 @@ class StudioDao {
             echo "0 resultados encontrados";
         }
     }
+
+    // Insere novo registro na tabela 'studio' do BD
+    function inserirStudio($Studio) {
+        $sql = "INSERT INTO studio (tipo_usuario, nome, cnpj, telefone, email, senha, fk_endereco_id)
+            VALUES ('".$Studio->getTipoUsuario()."', '".$Studio->getNome()."', '".$Studio->getCnpj()."',
+            '".$Studio->getTelefone()."', '".$Studio->getEmail()."', '".$Studio->getSenha()."', '".$Studio->getFkEnderecoId()."')";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->erro];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
