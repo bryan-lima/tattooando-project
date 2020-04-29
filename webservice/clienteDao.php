@@ -16,6 +16,23 @@ class ClienteDao {
     function __destruct() {
         $this->conn->close();
     }
+
+    // Lista todos os registros da tabela 'cliente' do BD
+    function listarTodosClientes() {
+        $sql = "SELECT * FROM cliente";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows > 0) {
+            $clientes = [];
+            while($row = $result->fetch_assoc()) {
+                $cliente = ["id"=>$row["id"], "tipoUsuario"=>$row["tipoUsuario"], "nome"=>$row["nome"], "cpf"=>$row["cpf"], "nascimento"=>$row["nascimento"], "telefone"=>$row["telefone"], "email"=>$row["email"], "senha"=>$row["senha"], "fkEnderecoId"=>$row["fkEnderecoId"]];
+                array_push($clientes, $cliente);
+            }
+            echo json_encode($clientes);
+        } else {
+            echo "0 resultados encontrados";
+        }
+    }
 }
 
 ?>
