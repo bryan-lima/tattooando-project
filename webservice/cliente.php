@@ -58,7 +58,7 @@ class Cliente {
         return $this->senha;
     }
 
-    function getfkEnderecoId() {
+    function getFkEnderecoId() {
         return $this->fkEnderecoId;
     }
 }
