@@ -59,6 +59,17 @@ class StudioDao {
         }
         return json_encode($status);
     }
+
+    // Deleta registro correspondente ao ID informado, da tabela 'studio' do BD
+    function deletarStudio($Studio) {
+        $sql = "DELETE FROM studio WHERE id = '".$Studio->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
