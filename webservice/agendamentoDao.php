@@ -88,6 +88,19 @@ class AgendamentoDao {
             echo "0 resultados encontrados";
         }
     }
+
+    // Insere novo registro na tabela 'agendamento' do BD
+    function inserirAgendamento($Agendamento) {
+        $sql = "INSERT INTO agendamento (fk_cliente_id, fk_servico_id, data_agendada, horaAgendada, status)
+            VALUES ('".$Agendamento->getFkClienteId()."', '".$Agendamento->getFkServicoId()."', '".$Agendamento->getDataAgendada()."', 
+            '".$Agendamento->getHoraAgendada()."', '".$Agendamento->getStatus()."')";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->erro];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
