@@ -47,6 +47,20 @@ class ClienteDao {
             echo "0 resultados encontrados";
         }
     }
+
+    // Insere novo registro na tabela 'cliente' do BD
+    function inserirCliente($Cliente) {
+        $sql = "INSERT INTO cliente (tipo_usuario, nome, cpf, nascimento, telefone, email, senha, fk_endereco_id)
+            VALUES ('".$Cliente->getTipoUsuario()."', '".$Cliente->getNome()."', '".$Cliente->getCpf()."',
+            '".$Cliente->getNascimento()."', '".$Cliente->getTelefone()."', '".$Cliente->getEmail()."',
+            '".$Cliente->getSenha()."', '".$Cliente->getFkEnderecoId()."')";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->erro];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
