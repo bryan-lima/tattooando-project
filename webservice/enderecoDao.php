@@ -60,6 +60,18 @@ class EnderecoDao {
             echo "0 resultados encontrados";
         }
     }
+
+    // Insere novo registro na tabela 'endereco' do BD
+    function inserirEndereco($Endereco) {
+        $sql = "INSERT INTO endereco (cep, numero, complemento)
+            VALUES ('".$Endereco->getCep()."', '".$Endereco->getNumero()."', '".$Endereco->getComplemento()."')";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->erro];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
