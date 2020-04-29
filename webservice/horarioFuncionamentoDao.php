@@ -85,6 +85,21 @@ class HorarioFuncionamento {
         }
         return json_encode($status);
     }
+
+    // Atualiza registro correspondente ao ID informado, da tabela 'horario_funcionamento' do BD
+    function atualizarHorarioFuncionamento($HorarioFuncionamento) {
+        $sql = "UPDATE horario_funcionamento 
+                SET fk_studio_id='".$HorarioFuncionamento->getFkStudioId()."', dias_aberto='".$HorarioFuncionamento->getDiasAberto()."',  
+                hr_semana_inicio='".$HorarioFuncionamento->getHrSemanaInicio()."', hr_semana_fim='".$HorarioFuncionamento->getHrSemanaFim()."', 
+                hr_fim_semana_inicio='".$HorarioFuncionamento->getHrFimSemanaInicio()."', hr_fim_semana_fim='".$HorarioFuncionamento->getHrFimSemanaFim()."', 
+                WHERE id='".$HorarioFuncionamento->getId()."'";
+        if($this->conn->query($sql) === TRUE) {
+            $status = ["status"=>"sucesso"];
+        } else {
+            $status = ["status"=>"erro: " . $this->conn->error];
+        }
+        return json_encode($status);
+    }
 }
 
 ?>
