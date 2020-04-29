@@ -60,6 +60,20 @@ class AgendamentoDao {
             echo "0 resultados encontrados";
         }
     }
+
+    // Lista registro correspondente ao ID do serviço informado, da tabela 'endereco' do BD
+    function listarAgendamentoPorServico($fkServicoId) {
+        $sql = "SELECT * FROM agendamento WHERE fk_servico_id=$fkServicoId";
+        $result = $this->conn->query($ql);
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $value = json_encode($row);
+                echo($value);
+            }
+        } else {
+            echo "0 resultados encontrados";
+        }
+    }
 }
 
 ?>
