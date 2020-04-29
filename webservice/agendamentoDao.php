@@ -74,6 +74,20 @@ class AgendamentoDao {
             echo "0 resultados encontrados";
         }
     }
+
+    // Lista registro correspondente ao status informado, da tabela 'endereco' do BD
+    function listarAgendamentoPorStatus($status) {
+        $sql = "SELECT * FROM agendamento WHERE status='$status'";
+        $result = $this->conn->query($ql);
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $value = json_encode($row);
+                echo($value);
+            }
+        } else {
+            echo "0 resultados encontrados";
+        }
+    }
 }
 
 ?>
