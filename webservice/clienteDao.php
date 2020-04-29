@@ -33,6 +33,20 @@ class ClienteDao {
             echo "0 resultados encontrados";
         }
     }
+
+    // Lista um registro, localizado pelo ID, da tabela 'cliente' do BD
+    function listarCliente($id) {
+        $sql = "SELECT * FROM cliente WHERE id=$id";
+        $result = $this->conn->query($ql);
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $value = json_encode($row);
+                echo($value);
+            }
+        } else {
+            echo "0 resultados encontrados";
+        }
+    }
 }
 
 ?>
