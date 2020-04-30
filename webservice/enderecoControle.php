@@ -33,6 +33,11 @@ if($metodo == "GET") {
     echo $EnderecoDao->atualizarEndereco($Endereco);
 
 } else if($metodo == "DELETE") {
+    $json = file_get_contents('php://input');
+    $endereco = json_decode($json);
+    $EnderecoDao = new EnderecoDao();
+    $Endereco = new Endereco($endereco);
+    echo $EnderecoDao->deletarEndereco($Endereco);
 
 }
 
