@@ -15,8 +15,13 @@ if($metodo == "GET") {
     } else {
         $ClienteDao->listarTodosClientes();
     }
-    
+
 } else if($metodo == "POST") {
+    $json = file_get_contents('php://input');
+    $cliente = json_decode($json);
+    $ClienteDao = new ClienteDao();
+    $Cliente = new Cliente($cliente);
+    echo $ClienteDao->inserirCliente($Cliente);
 
 } else if($metodo == "PUT") {
 
