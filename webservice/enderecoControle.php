@@ -19,6 +19,11 @@ if($metodo == "GET") {
     }
 
 } else if($metodo == "POST") {
+    $json = file_get_contents('php://input');
+    $endereco = json_decode($json);
+    $EnderecoDao = new EnderecoDao();
+    $Endereco = new Endereco($endereco);
+    echo $EnderecoDao->inserirEndereco($Endereco);
 
 } else if($metodo == "PUT") {
 
