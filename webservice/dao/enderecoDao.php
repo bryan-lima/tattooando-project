@@ -36,7 +36,7 @@ class EnderecoDao {
     // Lista registro correspondente ao ID informado, da tabela 'endereco' do BD
     function listarEnderecoPorId($id) {
         $sql = "SELECT * FROM endereco WHERE id=$id";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);

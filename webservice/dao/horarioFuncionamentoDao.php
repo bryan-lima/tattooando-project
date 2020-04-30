@@ -36,7 +36,7 @@ class HorarioFuncionamentoDao {
     // Lista registro correspondente ao ID informado, da tabela 'horario_funcionamento' do BD
     function listarHorarioFuncionamentoPorId($id) {
         $sql = "SELECT * FROM horario_funcionamento WHERE id=$id";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);
@@ -50,7 +50,7 @@ class HorarioFuncionamentoDao {
     // Lista registro correspondente ao ID do Studio informado, da tabela 'horario_funcionamento' do BD
     function listarHorarioFuncionamentoPorStudio($fkStudioId) {
         $sql = "SELECT * FROM horario_funcionamento WHERE fk_studio_id=$fkStudioId";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);

@@ -36,7 +36,7 @@ class StudioDao {
     // Lista registro correspondente ao ID informado, da tabela 'studio' do BD
     function listarStudio($id) {
         $sql = "SELECT * FROM studio WHERE id=$id";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);

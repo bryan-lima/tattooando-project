@@ -37,7 +37,7 @@ class ClienteDao {
     // Lista um registro, localizado pelo ID, da tabela 'cliente' do BD
     function listarCliente($id) {
         $sql = "SELECT * FROM cliente WHERE id=$id";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);

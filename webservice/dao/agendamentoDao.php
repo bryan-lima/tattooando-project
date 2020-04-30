@@ -36,7 +36,7 @@ class AgendamentoDao {
     // Lista registro correspondente ao ID informado, da tabela 'endereco' do BD
     function listarAgendamentoPorId($id) {
         $sql = "SELECT * FROM agendamento WHERE id=$id";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);
@@ -50,7 +50,7 @@ class AgendamentoDao {
     // Lista registro correspondente ao ID do cliente informado, da tabela 'endereco' do BD
     function listarAgendamentoPorCliente($fkClienteId) {
         $sql = "SELECT * FROM agendamento WHERE fk_cliente_id=$fkClienteId";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);
@@ -64,7 +64,7 @@ class AgendamentoDao {
     // Lista registro correspondente ao ID do serviço informado, da tabela 'endereco' do BD
     function listarAgendamentoPorServico($fkServicoId) {
         $sql = "SELECT * FROM agendamento WHERE fk_servico_id=$fkServicoId";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);
@@ -78,7 +78,7 @@ class AgendamentoDao {
     // Lista registro correspondente ao status informado, da tabela 'endereco' do BD
     function listarAgendamentoPorStatus($status) {
         $sql = "SELECT * FROM agendamento WHERE status='$status'";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);
