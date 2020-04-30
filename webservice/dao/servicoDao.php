@@ -69,7 +69,7 @@ class ServicoDao {
         if($this->conn->query($sql) === TRUE) {
             $status = ["status"=>"sucesso"];
         } else {
-            $status = ["status"=>"erro: " . $this->conn->erro];
+            $status = ["status"=>"erro: " . $this->conn->error];
         }
         return json_encode($status);
     }
