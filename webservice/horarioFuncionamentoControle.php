@@ -9,6 +9,14 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 
 // Modelo arquitetural REST
 if($metodo == "GET") {
+    $HorarioFuncionamentoDao = new HorarioFuncionamentoDao();
+    if(isset($_GET['id'])) {
+        $HorarioFuncionamentoDao->listarHorarioFuncionamentoPorId($_GET['id']);
+    } else if(isset($_GET['fkStudioId'])) {
+        $HorarioFuncionamentoDao->listarHorarioFuncionamentoPorStudio($_GET['fkStudioId']);
+    } else {
+        $HorarioFuncionamentoDao->listarTodosHorariosFuncionamento();
+    }
 
 } else if($metodo == "POST") {
 
