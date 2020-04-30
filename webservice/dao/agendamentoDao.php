@@ -1,7 +1,7 @@
 <?php
 
-include_once "model/conexao.php";
-include_once "model/agendamento.php";
+include_once "./model/conexao.php";
+include_once "./model/agendamento.php";
 
 class AgendamentoDao {
     public $conn;

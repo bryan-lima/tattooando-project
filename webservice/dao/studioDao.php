@@ -1,7 +1,7 @@
 <?php
 
-include_once "model/conexao.php";
-include_once "model/studio.php";
+include_once "./model/conexao.php";
+include_once "./model/studio.php";
 
 class StudioDao {
     public $conn;
