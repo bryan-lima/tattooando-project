@@ -87,7 +87,7 @@ class EnderecoDao {
     // Atualiza registro correspondente ao ID informado, da tabela 'endereco' do BD
     function atualizarEndereco($Endereco) {
         $sql = "UPDATE endereco 
-                SET cep='".$Endereco->getCep()."', numero='".$Endereco->getNumero()."', complemento='".$Endereco->getComplemento()."',
+                SET cep='".$Endereco->getCep()."', numero='".$Endereco->getNumero()."', complemento='".$Endereco->getComplemento()."'
                 WHERE id='".$Endereco->getId()."'";
         if($this->conn->query($sql) === TRUE) {
             $status = ["status"=>"sucesso"];
