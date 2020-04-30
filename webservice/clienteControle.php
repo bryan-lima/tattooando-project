@@ -9,7 +9,13 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 
 // Modelo arquitetural REST
 if($metodo == "GET") {
-
+    $ClienteDao = new ClienteDao();
+    if(isset($_GET['id'])) {
+        $ClienteDao->listarCliente($_GET['id']);
+    } else {
+        $ClienteDao->listarTodosClientes();
+    }
+    
 } else if($metodo == "POST") {
 
 } else if($metodo == "PUT") {
