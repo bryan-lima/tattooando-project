@@ -31,6 +31,11 @@ if($metodo == "GET") {
     echo $ClienteDao->atualizarCliente($Cliente);
 
 } else if($metodo == "DELETE") {
+    $json = file_get_contents('php://input');
+    $cliente = json_decode($json);
+    $ClienteDao = new ClienteDao();
+    $Cliente = new Cliente($cliente);
+    echo $ClienteDao->deletarCliente($Cliente);
 
 }
 
