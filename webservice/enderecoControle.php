@@ -26,6 +26,11 @@ if($metodo == "GET") {
     echo $EnderecoDao->inserirEndereco($Endereco);
 
 } else if($metodo == "PUT") {
+    $json = file_get_contents('php://input');
+    $endereco = json_decode($json);
+    $EnderecoDao = new EnderecoDao();
+    $Endereco = new Endereco($endereco);
+    echo $EnderecoDao->atualizarEndereco($Endereco);
 
 } else if($metodo == "DELETE") {
 
