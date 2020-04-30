@@ -17,6 +17,11 @@ if($metodo == "GET") {
     }
 
 } else if($metodo == "POST") {
+    $json = file_get_contents('php://input');
+    $studio = json_decode($json);
+    $StudioDao = new StudioDao();
+    $Studio = new Studio($studio);
+    echo $StudioDao->inserirStudio($Studio);
 
 } else if($metodo == "PUT") {
 
