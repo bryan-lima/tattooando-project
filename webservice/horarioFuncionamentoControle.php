@@ -19,6 +19,11 @@ if($metodo == "GET") {
     }
 
 } else if($metodo == "POST") {
+    $json = file_get_contents('php://input');
+    $horarioFuncionamento = json_decode($json);
+    $HorarioFuncionamentoDao = new HorarioFuncionamentoDao();
+    $HorarioFuncionamento = new HorarioFuncionamento($horarioFuncionamento);
+    echo $HorarioFuncionamentoDao->inserirHorarioFuncionamento($HorarioFuncionamento);
 
 } else if($metodo == "PUT") {
 
