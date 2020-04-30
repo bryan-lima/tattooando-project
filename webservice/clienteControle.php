@@ -24,6 +24,11 @@ if($metodo == "GET") {
     echo $ClienteDao->inserirCliente($Cliente);
 
 } else if($metodo == "PUT") {
+    $json = file_get_contents('php://input');
+    $cliente = json_decode($json);
+    $ClienteDao = new ClienteDao();
+    $Cliente = new Cliente($cliente);
+    echo $ClienteDao->atualizarCliente($Cliente);
 
 } else if($metodo == "DELETE") {
 
