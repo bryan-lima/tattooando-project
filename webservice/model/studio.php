@@ -12,7 +12,7 @@ class Studio {
 
     // Construtor
     function __construct($studio) {
-        if(asset($studio->id))
+        if(isset($studio->id))
         $this->id = $studio->id;
         $this->tipoUsuario = $studio->tipoUsuario;
         $this->nome = $studio->nome;
