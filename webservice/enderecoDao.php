@@ -1,7 +1,7 @@
 <?php
 
-include_once "conexao.php";
-include_once "endereco.php"
+include_once "model/conexao.php";
+include_once "model/endereco.php"
 
 class EnderecoDao {
     public $conn;
