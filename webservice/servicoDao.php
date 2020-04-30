@@ -1,7 +1,7 @@
 <?php
 
-include_once "conexao.php";
-include_once "servico.php";
+include_once "model/conexao.php";
+include_once "model/servico.php";
 
 class ServicoDao {
     public $conn;
