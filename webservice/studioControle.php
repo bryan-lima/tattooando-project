@@ -31,6 +31,11 @@ if($metodo == "GET") {
     echo $StudioDao->atualizarStudio($Studio);
 
 } else if($metodo == "DELETE") {
+    $json = file_get_contents('php://input');
+    $studio = json_decode($json);
+    $StudioDao = new StudioDao();
+    $Studio = new Studio($studio);
+    echo $StudioDao->deletarStudio($Studio);
 
 }
 
