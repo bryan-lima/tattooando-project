@@ -25,7 +25,7 @@ class ClienteDao {
         if($result->num_rows > 0) {
             $clientes = [];
             while($row = $result->fetch_assoc()) {
-                $cliente = ["id"=>$row["id"], "tipoUsuario"=>$row["tipoUsuario"], "nome"=>$row["nome"], "cpf"=>$row["cpf"], "nascimento"=>$row["nascimento"], "telefone"=>$row["telefone"], "email"=>$row["email"], "senha"=>$row["senha"], "fkEnderecoId"=>$row["fkEnderecoId"]];
+                $cliente = ["id"=>$row["id"], "tipoUsuario"=>$row["tipo_usuario"], "nome"=>$row["nome"], "cpf"=>$row["cpf"], "nascimento"=>$row["nascimento"], "telefone"=>$row["telefone"], "email"=>$row["email"], "senha"=>$row["senha"], "fkEnderecoId"=>$row["fk_endereco_id"]];
                 array_push($clientes, $cliente);
             }
             echo json_encode($clientes);
