@@ -9,6 +9,12 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 
 // Modelo arquitetural REST
 if($metodo == "GET") {
+    $StudioDao = new StudioDao();
+    if(isset($_GET['id'])) {
+        $StudioDao->listarStudio($_GET['id']);
+    } else {
+        $StudioDao->listarTodosStudios();
+    }
 
 } else if($metodo == "POST") {
 
