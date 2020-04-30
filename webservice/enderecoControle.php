@@ -9,6 +9,14 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 
 // Modelo arquitetural REST
 if($metodo == "GET") {
+    $EnderecoDao = new EnderecoDao();
+    if(isset($_GET['id'])) {
+        $EnderecoDao->listarEnderecoPorId($_GET['id']);
+    } else if(isset($_GET['cep']) && isset($_GET['numero'])) {
+        $EnderecoDao->listarEnderecoPorCepENumero($_GET['cep'], $_GET['numero']);
+    } else {
+        $EnderecoDao->listarTodosEnderecos();
+    }
 
 } else if($metodo == "POST") {
 
