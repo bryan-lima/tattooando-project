@@ -50,7 +50,7 @@ class EnderecoDao {
     // Lista registro correspondente ao CEP e número informados, da tabela 'endereco' do BD
     function listarEnderecoPorCepENumero($cep, $numero) {
         $sql = "SELECT * FROM endereco WHERE cep='$cep' AND numero='$numero'";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);
