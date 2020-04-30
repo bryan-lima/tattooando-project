@@ -9,7 +9,7 @@ class HorarioFuncionamentoDao {
     // Abre conexão com BD
     function __construct() {
         $conexao = new Conexao();
-        $this->conn - $conexao->getConn();
+        $this->conn = $conexao->getConn();
     }
 
     // Fecha conexão com BD
