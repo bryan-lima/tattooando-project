@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Agendamento</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Botão Inserir - Método POST
+            $('#btnCadastrar').click(function(){
+                var dados = {
+                    "fkClienteId":$("#txtClienteId").val(), 
+                    "fkServicoId":$("#txtServicoId").val(), 
+                    "dataAgendada":$("#txtDataAgendada").val(),
+                    "horaAgendada":$("#txtHoraAgendada").val(),
+                    "status":$("#txtStatus").val()
+                };
+                    
+                $.ajax({'url':'webservice/agendamentoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'POST', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) { 
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtClienteId").val('');
+                        $("#txtServicoId").val('');
+                        $("#txtDataAgendada").val('');
+                        $("#txtHoraAgendada").val('');
+                        $("#txtStatus").val('');
+                    }
+                });
+            });
+
+            // Botão Atualizar - Método PUT        
+            $('#btnAtualizar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                    "fkClienteId":$("#txtClienteId").val(), 
+                    "fkServicoId":$("#txtServicoId").val(), 
+                    "dataAgendada":$("#txtDataAgendada").val(),
+                    "horaAgendada":$("#txtHoraAgendada").val(),
+                    "status":$("#txtStatus").val()
+                };
+                $.ajax({'url':'webservice/agendamentoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'PUT', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                    }
+                });
+            });
+            
+            // Botão Deletar - Método DELETE
+            $('#btnApagar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                };
+                
+                $.ajax({'url':'webservice/agendamentoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'DELETE', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtClienteId").val('');
+                        $("#txtServicoId").val('');
+                        $("#txtDataAgendada").val('');
+                        $("#txtHoraAgendada").val('');
+                        $("#txtStatus").val('');
+                    }
+                });
+            });
+
+            // Botões Listar - Método GET 
+                // Pesquisa por ID do Agendamento
+            $('#btnPsqPorId').click(function(){
+                var id = $("#txtId").val();
+                $.get("webservice/agendamentoControle.php",
+                {
+                    id:id
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtClienteId").val(dados.fk_cliente_id);
+                        $("#txtServicoId").val(dados.fk_servico_id);
+                        $("#txtDataAgendada").val(dados.data_agendada);
+                        $("#txtHoraAgendada").val(dados.hora_agendada);
+                        $("#txtStatus").val(dados.status);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+
+                // Pesquisa por ID do Cliente
+            $('#btnPsqPorClienteId').click(function(){
+                var fkClienteId = $("#txtClienteId").val();
+                $.get("webservice/agendamentoControle.php",
+                {
+                    fkClienteId:fkClienteId
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtId").val(dados.id);
+                        $("#txtServicoId").val(dados.fk_servico_id);
+                        $("#txtDataAgendada").val(dados.data_agendada);
+                        $("#txtHoraAgendada").val(dados.hora_agendada);
+                        $("#txtStatus").val(dados.status);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+
+                // Pesquisa por ID do Serviço
+            $('#btnPsqPorServicoId').click(function(){
+                var fkServicoId = $("#txtServicoId").val();
+                $.get("webservice/agendamentoControle.php",
+                {
+                    fkServicoId:fkServicoId
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtId").val(dados.id);
+                        $("#txtClienteId").val(dados.fk_cliente_id);
+                        $("#txtDataAgendada").val(dados.data_agendada);
+                        $("#txtHoraAgendada").val(dados.hora_agendada);
+                        $("#txtStatus").val(dados.status);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+
+                // Pesquisa por Status do Agendamento
+                $('#btnPsqPorStatus').click(function(){
+                var status = $("#txtStatus").val();
+                $.get("webservice/agendamentoControle.php",
+                {
+                    status:status
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtId").val(dados.id);
+                        $("#txtClienteId").val(dados.fk_cliente_id);
+                        $("#txtServicoId").val(dados.fk_servico_id);
+                        $("#txtDataAgendada").val(dados.data_agendada);
+                        $("#txtHoraAgendada").val(dados.hora_agendada);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Exemplo - Agendamento</h2>
+    <br>
+    <p class="lead">Pesquise por:</p>
+    <p class="lead"> - ID do Agendamento</p>
+    <p class="lead"> - ID do Cliente</p>
+    <p class="lead"> - ID do Serviço</p>
+    <p class="lead"> - Status do Agendamento</p>
+    <div class="form-group">
+        <label for="txtId">ID - Agendamento:</label>
+        <input type="number" class="form-control" id="txtId" name="txtId">
+        <button id="btnPsqPorId">Buscar por ID do Agendamento</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtClienteId">ID - Cliente:</label>
+        <input type="number" class="form-control" id="txtClienteId" name="txtClienteId">
+        <button id="btnPsqPorClienteId">Buscar por ID do Cliente</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtServicoId">ID - Serviço:</label>
+        <input type="number" class="form-control" id="txtServicoId" name="txtServicoId">
+        <button id="btnPsqPorServicoId">Buscar por ID do Serviço</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtStatus">Status do Agendamento:</label>
+        <input type="text" class="form-control" id="txtStatus" name="txtStatus">
+        <button id="btnPsqPorStatus">Buscar por Status do Agendamento</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtDataAgendada">Data Agendada:</label>
+        <input type="date" class="form-control" id="txtDataAgendada" name="txtDataAgendada">
+    </div>
+
+    <div class="form-group">
+        <label for="txtHoraAgendada">Hora Agendada:</label>
+        <input type="time" class="form-control" id="txtHoraAgendada" name="txtHoraAgendada">
+    </div>
+
+	<div class="form-group">
+        <button id="btnCadastrar">Cadastrar</button>
+        <button id="btnAtualizar">Atualizar</button>
+        <button id="btnApagar">Apagar</button>
+    </div>
+</div>
+</body>
+</html>
