@@ -19,6 +19,11 @@ if($metodo == "GET") {
     }
 
 } else if($metodo == "POST") {
+    $json = file_get_contents('php://input');
+    $servico = json_decode($json);
+    $ServicoDao = new ServicoDao();
+    $Servico = new Servico($servico);
+    echo $ServicoDao->inserirServico($Servico);
 
 } else if($metodo == "PUT") {
 
