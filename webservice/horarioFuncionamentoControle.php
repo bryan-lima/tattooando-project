@@ -33,6 +33,11 @@ if($metodo == "GET") {
     echo $HorarioFuncionamentoDao->atualizarHorarioFuncionamento($HorarioFuncionamento);
 
 } else if($metodo == "DELETE") {
+    $json = file_get_contents('php://input');
+    $horarioFuncionamento = json_decode($json);
+    $HorarioFuncionamentoDao = new HorarioFuncionamentoDao();
+    $HorarioFuncionamento = new HorarioFuncionamento($horarioFuncionamento);
+    echo $HorarioFuncionamentoDao->deletarHorarioFuncionamento($HorarioFuncionamento);
 
 }
 
