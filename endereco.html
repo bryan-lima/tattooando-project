@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Endereço</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Botão Inserir - Método POST
+            $('#btnCadastrar').click(function(){
+                var dados = {
+                    "cep":$("#txtCep").val(), 
+                    "numero":$("#txtNumero").val(),
+                    "complemento":$("#txtComplemento").val()
+                };
+                    
+                $.ajax({'url':'webservice/enderecoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'POST', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) { 
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtCep").val('');
+                        $("#txtNumero").val('');
+                        $("#txtComplemento").val('');
+                    }
+                });
+            });
+
+            // Botão Atualizar - Método PUT        
+            $('#btnAtualizar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                    "cep":$("#txtCep").val(), 
+                    "numero":$("#txtNumero").val(), 
+                    "complemento":$("#txtComplemento").val()
+                };
+                $.ajax({'url':'webservice/enderecoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'PUT', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                    }
+                });
+            });
+            
+            // Botão Deletar - Método DELETE
+            $('#btnApagar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                };
+                
+                $.ajax({'url':'webservice/enderecoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'DELETE', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtCep").val('');
+                        $("#txtNumero").val('');
+                        $("#txtComplemento").val('');
+                    }
+                });
+            });
+
+            // Botões Listar - Método GET 
+                // Pesquisa por ID
+            $('#btnPsqPorId').click(function(){
+                var id = $("#txtId").val();
+                $.get("webservice/enderecoControle.php",
+                {
+                    id:id
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtCep").val(dados.cep);
+                        $("#txtNumero").val(dados.numero);
+                        $("#txtComplemento").val(dados.complemento);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+
+                // Pesquisa por CEP e número
+            $('#btnPsqPorCepENumero').click(function(){
+                var cep = $("#txtCep").val();
+                var numero = $("#txtNumero").val();
+                $.get("webservice/enderecoControle.php",
+                {
+                    cep:cep,numero:numero
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtId").val(dados.id);
+                        $("#txtComplemento").val(dados.complemento);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Exemplo - Endereço</h2>
+    <br>
+    <p class="lead">Pesquise por:</p>
+    <p class="lead"> - ID</p>
+    <p class="lead"> - CEP e número <i>(obrigatório informar os 2 dados, se optar por essa forma, senão a pesquisa não é realizada)</i></p>
+    <div class="form-group">
+        <label for="txtId">ID:</label>
+        <input type="number" class="form-control" id="txtId" name="txtId">
+        <button id="btnPsqPorId">Buscar por ID</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtCep">CEP:</label>
+        <input type="text" class="form-control" id="txtCep" name="txtCep">
+        <label for="txtNumero">Numero:</label>
+        <input type="text" class="form-control" id="txtNumero" name="txtNumero">
+        <button id="btnPsqPorCepENumero">Buscar por CEP e número</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtComplemento">Complemento:</label>
+        <input type="text" class="form-control" id="txtComplemento" name="txtComplemento">
+    </div>
+
+	<div class="form-group">
+        <button id="btnCadastrar">Cadastrar</button>
+        <button id="btnAtualizar">Atualizar</button>
+        <button id="btnApagar">Apagar</button>
+    </div>
+</div>
+</body>
+</html>
