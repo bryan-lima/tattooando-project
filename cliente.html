@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Cliente</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Botão Inserir - Método POST
+            $('#btnCadastrar').click(function(){
+                var dados = {
+                    "tipoUsuario":$("#txtTipoUsuario").val(), 
+                    "nome":$("#txtNome").val(),
+                    "cpf":$("#txtCpf").val(),
+                    "nascimento":$("#txtNascimento").val(),
+                    "telefone":$("#txtTelefone").val(),
+                    "email":$("#txtEmail").val(),
+                    "senha":$("#txtSenha").val(),
+                    "fkEnderecoId":$("#txtFkEnderecoId").val()
+                };
+                    
+                $.ajax({'url':'webservice/clienteControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'POST', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) { 
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtTipoUsuario").val('');
+                        $("#txtNome").val('');
+                        $("#txtCpf").val('');
+                        $("#txtNascimento").val('');
+                        $("#txtTelefone").val('');
+                        $("#txtEmail").val('');
+                        $("#txtSenha").val('');
+                        $("#txtFkEnderecoId").val('');
+                    }
+                });
+            });
+
+            // Botão Atualizar - Método PUT        
+            $('#btnAtualizar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                    "tipoUsuario":$("#txtTipoUsuario").val(), 
+                    "nome":$("#txtNome").val(), 
+                    "cpf":$("#txtCpf").val(), 
+                    "nascimento":$("#txtNascimento").val(), 
+                    "telefone":$("#txtTelefone").val(), 
+                    "email":$("#txtEmail").val(), 
+                    "senha":$("#txtSenha").val(), 
+                    "fkEnderecoId":$("#txtFkEnderecoId").val()
+                };
+                $.ajax({'url':'webservice/clienteControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'PUT', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                    }
+                });
+            });
+            
+            // Botão Deletar - Método DELETE
+            $('#btnApagar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                };
+                
+                $.ajax({'url':'webservice/clienteControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'DELETE', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtTipoUsuario").val('');
+                        $("#txtNome").val('');
+                        $("#txtCpf").val('');
+                        $("#txtNascimento").val('');
+                        $("#txtTelefone").val('');
+                        $("#txtEmail").val('');
+                        $("#txtSenha").val('');
+                        $("#txtFkEnderecoId").val('');
+                    }
+                });
+            });
+
+            // Botão Listar - Método GET        
+            $('#btnPsq').click(function(){
+                var id = $("#txtId").val();
+                $.get("webservice/clienteControle.php",
+                {
+                    id:id
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtTipoUsuario").val(dados.tipo_usuario);
+                        $("#txtNome").val(dados.nome);
+                        $("#txtCpf").val(dados.cpf);
+                        $("#txtNascimento").val(dados.nascimento);
+                        $("#txtTelefone").val(dados.telefone);
+                        $("#txtEmail").val(dados.email);
+                        $("#txtSenha").val(dados.senha);
+                        $("#txtFkEnderecoId").val(dados.fk_endereco_id);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Exemplo - Cliente</h2>
+    <div class="form-group">
+        <label for="txtId">ID:</label>
+        <input type="number" class="form-control" id="txtId"  name="txtId">
+        <button id="btnPsq">Buscar</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtTipoUsuario">Tipo usuário:</label>
+        <input type="text" class="form-control" id="txtTipoUsuario"  name="txtTipoUsuario" value="cliente" disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="txtNome">Nome:</label>
+        <input type="text" class="form-control" id="txtNome"  name="txtNome">
+    </div>
+    
+    <div class="form-group">
+        <label for="txtCpf">CPF:</label>
+        <input type="text" class="form-control" id="txtCpf"  name="txtCpf">
+    </div>
+
+    <div class="form-group">
+        <label for="txtNascimento">Nascimento:</label>
+        <input type="date" class="form-control" id="txtNascimento"  name="txtNascimento">
+    </div>
+
+    <div class="form-group">
+        <label for="txtTelefone">Telefone:</label>
+        <input type="text" class="form-control" id="txtTelefone"  name="txtTelefone">
+    </div>
+	
+	<div class="form-group">
+        <label for="txtEmail">Email:</label>
+        <input type="text" class="form-control" id="txtEmail"  name="txtEmail">
+    </div>
+
+    <div class="form-group">
+        <label for="txtSenha">Senha:</label>
+        <input type="text" class="form-control" id="txtSenha"  name="txtSenha">
+    </div>
+
+    <div class="form-group">
+        <label for="txtFkEnderecoId">Endereço ID:</label>
+        <input type="number" class="form-control" id="txtFkEnderecoId"  name="txtFkEnderecoId">
+    </div>
+
+	<div class="form-group">
+        <button id="btnCadastrar">Cadastrar</button>
+        <button id="btnAtualizar">Atualizar</button>
+        <button id="btnApagar">Apagar</button>
+    </div>
+</div>
+</body>
+</html>
