@@ -23,6 +23,11 @@ if($metodo == "GET") {
     }
 
 } else if($metodo == "POST") {
+    $json = file_get_contents('php://input');
+    $agendamento = json_decode($json);
+    $AgendamentoDao = new AgendamentoDao();
+    $Agendamento = new Agendamento($agendamento);
+    echo $AgendamentoDao->inserirAgendamento($Agendamento);
 
 } else if($metodo == "PUT") {
 
