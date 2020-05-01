@@ -9,6 +9,18 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 
 // Modelo arquitetural REST
 if($metodo == "GET") {
+    $AgendamentoDao = new AgendamentoDao();
+    if(isset($_GET['id'])) {
+        $AgendamentoDao->listarAgendamentoPorId($_GET['id']);
+    } else if(isset($_GET['fkClienteId'])) {
+        $AgendamentoDao->listarAgendamentoPorCliente($_GET['fkClienteId']);
+    } else if(isset($_GET['fkServicoId'])) {
+        $AgendamentoDao->listarAgendamentoPorServico($_GET['fkServicoId']);
+    } else if(isset($_GET['status'])) {
+        $AgendamentoDao->listarAgendamentoPorStatus($_GET['status']);
+    } else {
+        $AgendamentoDao->listarTodosAgendamentos();
+    }
 
 } else if($metodo == "POST") {
 
