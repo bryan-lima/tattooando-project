@@ -30,6 +30,11 @@ if($metodo == "GET") {
     echo $AgendamentoDao->inserirAgendamento($Agendamento);
 
 } else if($metodo == "PUT") {
+    $json = file_get_contents('php://input');
+    $agendamento = json_decode($json);
+    $AgendamentoDao = new AgendamentoDao();
+    $Agendamento = new Agendamento($agendamento);
+    echo $AgendamentoDao->atualizarAgendamento($Agendamento);
 
 } else if($metodo == "DELETE") {
 
