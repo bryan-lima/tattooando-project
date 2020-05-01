@@ -70,7 +70,7 @@ PRIMARY KEY(id)
 ) ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE agendamento (
-id INT NOT NULL,
+id INT NOT NULL AUTO_INCREMENT,
 fk_cliente_id INT NOT NULL,
 fk_servico_id INT NOT NULL,
 data_agendada DATE NOT NULL,
