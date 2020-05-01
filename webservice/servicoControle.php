@@ -33,6 +33,11 @@ if($metodo == "GET") {
     echo $ServicoDao->atualizarServico($Servico);
 
 } else if($metodo == "DELETE") {
+    $json = file_get_contents('php://input');
+    $servico = json_decode($json);
+    $ServicoDao = new ServicoDao();
+    $Servico = new Servico($servico);
+    echo $ServicoDao->deletarServico($Servico);
 
 }
 
