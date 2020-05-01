@@ -50,7 +50,7 @@ class ServicoDao {
     // Lista registro correspondente ao ID do Studio informado, da tabela 'servico' do BD
     function listarServicoPorStudio($fkStudioId) {
         $sql = "SELECT * FROM servico WHERE fk_studio_id=$fkStudioId";
-        $result = $this->conn->query($ql);
+        $result = $this->conn->query($sql);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $value = json_encode($row);
