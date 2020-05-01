@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Serviço</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Botão Inserir - Método POST
+            $('#btnCadastrar').click(function(){
+                var dados = {
+                    "fkStudioId":$("#txtStudioId").val(), 
+                    "nome":$("#txtNome").val(),
+                    "descricao":$("#txtDescricao").val(),
+                    "preco":$("#txtPreco").val(),
+                    "tempoMedio":$("#txtTempoMedio").val()
+                };
+                    
+                $.ajax({'url':'webservice/servicoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'POST', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) { 
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtStudioId").val('');
+                        $("#txtNome").val('');
+                        $("#txtDescricao").val('');
+                        $("#txtPreco").val('');
+                        $("#txtTempoMedio").val('');
+                    }
+                });
+            });
+
+            // Botão Atualizar - Método PUT        
+            $('#btnAtualizar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                    "fkStudioId":$("#txtStudioId").val(), 
+                    "nome":$("#txtNome").val(),
+                    "descricao":$("#txtDescricao").val(),
+                    "preco":$("#txtPreco").val(),
+                    "tempoMedio":$("#txtTempoMedio").val()
+                };
+                $.ajax({'url':'webservice/servicoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'PUT', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                    }
+                });
+            });
+            
+            // Botão Deletar - Método DELETE
+            $('#btnApagar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                };
+                
+                $.ajax({'url':'webservice/servicoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'DELETE', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtStudioId").val('');
+                        $("#txtNome").val('');
+                        $("#txtDescricao").val('');
+                        $("#txtPreco").val('');
+                        $("#txtTempoMedio").val('');
+                    }
+                });
+            });
+
+            // Botões Listar - Método GET 
+                // Pesquisa por ID do Serviço
+            $('#btnPsqPorId').click(function(){
+                var id = $("#txtId").val();
+                $.get("webservice/servicoControle.php",
+                {
+                    id:id
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtStudioId").val(dados.fk_studio_id);
+                        $("#txtNome").val(dados.nome);
+                        $("#txtDescricao").val(dados.descricao);
+                        $("#txtPreco").val(dados.preco);
+                        $("#txtTempoMedio").val(dados.tempo_medio);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+
+                // Pesquisa por ID do Studio
+            $('#btnPsqPorStudioId').click(function(){
+                var fkStudioId = $("#txtStudioId").val();
+                $.get("webservice/servicoControle.php",
+                {
+                    fkStudioId:fkStudioId
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtId").val(dados.id);
+                        $("#txtNome").val(dados.nome);
+                        $("#txtDescricao").val(dados.descricao);
+                        $("#txtPreco").val(dados.preco);
+                        $("#txtTempoMedio").val(dados.tempo_medio);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Exemplo - Serviço</h2>
+    <br>
+    <p class="lead">Pesquise por:</p>
+    <p class="lead"> - ID do Serviço</p>
+    <p class="lead"> - ID do Studio</p>
+    <div class="form-group">
+        <label for="txtId">ID - Serviço:</label>
+        <input type="number" class="form-control" id="txtId" name="txtId">
+        <button id="btnPsqPorId">Buscar por ID Serviço</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtStudioId">ID - Studio:</label>
+        <input type="number" class="form-control" id="txtStudioId" name="txtStudioId">
+        <button id="btnPsqPorStudioId">Buscar por ID Studio</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtNome">Nome:</label>
+        <input type="text" class="form-control" id="txtNome" name="txtNome">
+    </div>
+
+    <div class="form-group">
+        <label for="txtDescricao">Descrição:</label>
+        <input type="text" class="form-control" id="txtDescricao" name="txtDescricao">
+    </div>
+
+    <div class="form-group">
+        <label for="txtPreco">Preço:</label>
+        <input type="number" class="form-control" id="txtPreco" name="txtPreco">
+    </div>
+
+    <div class="form-group">
+        <label for="txtTempoMedio">Tempo Médio de Serviço (hr):</label>
+        <input type="number" class="form-control" id="txtTempoMedio" name="txtTempoMedio">
+    </div>
+
+	<div class="form-group">
+        <button id="btnCadastrar">Cadastrar</button>
+        <button id="btnAtualizar">Atualizar</button>
+        <button id="btnApagar">Apagar</button>
+    </div>
+</div>
+</body>
+</html>
