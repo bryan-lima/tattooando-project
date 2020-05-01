@@ -26,6 +26,11 @@ if($metodo == "GET") {
     echo $HorarioFuncionamentoDao->inserirHorarioFuncionamento($HorarioFuncionamento);
 
 } else if($metodo == "PUT") {
+    $json = file_get_contents('php://input');
+    $horarioFuncionamento = json_decode($json);
+    $HorarioFuncionamentoDao = new HorarioFuncionamentoDao();
+    $HorarioFuncionamento = new HorarioFuncionamento($horarioFuncionamento);
+    echo $HorarioFuncionamentoDao->atualizarHorarioFuncionamento($HorarioFuncionamento);
 
 } else if($metodo == "DELETE") {
 
