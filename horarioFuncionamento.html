@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Horário Funcionamento</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Botão Inserir - Método POST
+            $('#btnCadastrar').click(function(){
+                var dados = {
+                    "fkStudioId":$("#txtStudioId").val(), 
+                    "diasAberto":$("#txtDiasAberto").val(),
+                    "hrSemanaInicio":$("#txtHrSemanaInicio").val(),
+                    "hrSemanaFim":$("#txtHrSemanaFim").val(),
+                    "hrFimSemanaInicio":$("#txtHrFimSemanaInicio").val(),
+                    "hrFimSemanaFim":$("#txtHrFimSemanaFim").val()
+                };
+                    
+                $.ajax({'url':'webservice/horarioFuncionamentoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'POST', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) { 
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtStudioId").val('');
+                        $("#txtDiasAberto").val('');
+                        $("#txtHrSemanaInicio").val('');
+                        $("#txtHrSemanaFim").val('');
+                        $("#txtHrFimSemanaInicio").val('');
+                        $("#txtHrFimSemanaFim").val('');
+                    }
+                });
+            });
+
+            // Botão Atualizar - Método PUT        
+            $('#btnAtualizar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                    "fkStudioId":$("#txtStudioId").val(), 
+                    "diasAberto":$("#txtDiasAberto").val(), 
+                    "hrSemanaInicio":$("#txtHrSemanaInicio").val(), 
+                    "hrSemanaFim":$("#txtHrSemanaFim").val(), 
+                    "hrFimSemanaInicio":$("#txtHrFimSemanaInicio").val(), 
+                    "hrFimSemanaFim":$("#txtHrFimSemanaFim").val()
+                };
+                $.ajax({'url':'webservice/horarioFuncionamentoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'PUT', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                    }
+                });
+            });
+            
+            // Botão Deletar - Método DELETE
+            $('#btnApagar').click(function(){
+                var dados = {
+                    "id":$("#txtId").val(), 
+                };
+                
+                $.ajax({'url':'webservice/horarioFuncionamentoControle.php', 
+                    'data': JSON.stringify(dados), 
+                    'type': 'DELETE', 
+                    'processData': false, 
+                    'contentType': 'application/json', 
+                    success: function(msg) {
+                        alert(msg.status);
+                        $("#txtId").val('');
+                        $("#txtStudioId").val('');
+                        $("#txtDiasAberto").val('');
+                        $("#txtHrSemanaInicio").val('');
+                        $("#txtHrSemanaFim").val('');
+                        $("#txtHrFimSemanaInicio").val('');
+                        $("#txtHrFimSemanaFim").val('');
+                    }
+                });
+            });
+
+            // Botões Listar - Método GET 
+                // Pesquisa por ID do Horário de Funcionamento
+            $('#btnPsqPorId').click(function(){
+                var id = $("#txtId").val();
+                $.get("webservice/horarioFuncionamentoControle.php",
+                {
+                    id:id
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtStudioId").val(dados.fk_studio_id);
+                        $("#txtDiasAberto").val(dados.dias_aberto);
+                        $("#txtHrSemanaInicio").val(dados.hr_semana_inicio);
+                        $("#txtHrSemanaFim").val(dados.hr_semana_fim);
+                        $("#txtHrFimSemanaInicio").val(dados.hr_fim_semana_inicio);
+                        $("#txtHrFimSemanaFim").val(dados.hr_fim_semana_fim);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+
+                // Pesquisa por ID do Studio
+            $('#btnPsqPorStudioId').click(function(){
+                var fkStudioId = $("#txtStudioId").val();
+                $.get("webservice/horarioFuncionamentoControle.php",
+                {
+                    fkStudioId:fkStudioId
+                }, 
+                function(dados) {
+                    if(dados != null) {
+                        $("#txtId").val(dados.id);
+                        $("#txtDiasAberto").val(dados.dias_aberto);
+                        $("#txtHrSemanaInicio").val(dados.hr_semana_inicio);
+                        $("#txtHrSemanaFim").val(dados.hr_semana_fim);
+                        $("#txtHrFimSemanaInicio").val(dados.hr_fim_semana_inicio);
+                        $("#txtHrFimSemanaFim").val(dados.hr_fim_semana_fim);
+                    } else {
+                        alert("Houve erro!");
+                    }
+                },'json');
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Exemplo - Horário Funcionamento</h2>
+    <br>
+    <p class="lead">Pesquise por:</p>
+    <p class="lead"> - ID do Horário de Funcionamento</p>
+    <p class="lead"> - ID do Studio</p>
+    <div class="form-group">
+        <label for="txtId">ID - Horário Funcionamento:</label>
+        <input type="number" class="form-control" id="txtId" name="txtId">
+        <button id="btnPsqPorId">Buscar por ID Horário Funcionamento
+        </button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtStudioId">ID - Studio:</label>
+        <input type="number" class="form-control" id="txtStudioId" name="txtStudioId">
+        <button id="btnPsqPorStudioId">Buscar por ID Studio</button>
+    </div>
+
+    <div class="form-group">
+        <label for="txtDiasAberto">Dias Aberto:</label>
+        <input type="text" class="form-control" id="txtDiasAberto" name="txtDiasAberto">
+    </div>
+
+    <div class="form-group">
+        <label for="txtHrSemanaInicio">Horário Semana - Das:</label>
+        <input type="time" class="form-control" id="txtHrSemanaInicio" name="txtHrSemanaInicio">
+    </div>
+
+    <div class="form-group">
+        <label for="txtHrSemanaFim">Horário Semana - Até:</label>
+        <input type="time" class="form-control" id="txtHrSemanaFim" name="txtHrSemanaFim">
+    </div>
+
+    <div class="form-group">
+        <label for="txtHrFimSemanaInicio">Horário Final de Semana - Das:</label>
+        <input type="time" class="form-control" id="txtHrFimSemanaInicio" name="txtHrFimSemanaInicio">
+    </div>
+
+    <div class="form-group">
+        <label for="txtHrFimSemanaFim">Horário Final de Semana - Até:</label>
+        <input type="time" class="form-control" id="txtHrFimSemanaFim" name="txtHrFimSemanaFim">
+    </div>
+
+	<div class="form-group">
+        <button id="btnCadastrar">Cadastrar</button>
+        <button id="btnAtualizar">Atualizar</button>
+        <button id="btnApagar">Apagar</button>
+    </div>
+</div>
+</body>
+</html>
