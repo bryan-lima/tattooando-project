@@ -91,7 +91,7 @@ class AgendamentoDao {
 
     // Insere novo registro na tabela 'agendamento' do BD
     function inserirAgendamento($Agendamento) {
-        $sql = "INSERT INTO agendamento (fk_cliente_id, fk_servico_id, data_agendada, horaAgendada, status)
+        $sql = "INSERT INTO agendamento (fk_cliente_id, fk_servico_id, data_agendada, hora_agendada, status)
             VALUES ('".$Agendamento->getFkClienteId()."', '".$Agendamento->getFkServicoId()."', '".$Agendamento->getDataAgendada()."', 
             '".$Agendamento->getHoraAgendada()."', '".$Agendamento->getStatus()."')";
         if($this->conn->query($sql) === TRUE) {
