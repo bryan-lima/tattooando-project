@@ -89,7 +89,7 @@ class ServicoDao {
     function atualizarServico($Servico) {
         $sql = "UPDATE servico 
                 SET fk_studio_id='".$Servico->getFkStudioId()."', nome='".$Servico->getNome()."', descricao='".$Servico->getDescricao()."',
-                preco='".$Servico->getPreco()."', tempo_medio='".$Servico->getTempoMedio()."', 
+                preco='".$Servico->getPreco()."', tempo_medio='".$Servico->getTempoMedio()."' 
                 WHERE id='".$Servico->getId()."'";
         if($this->conn->query($sql) === TRUE) {
             $status = ["status"=>"sucesso"];
