@@ -118,7 +118,7 @@ class AgendamentoDao {
         $sql = "UPDATE agendamento 
                 SET fk_cliente_id='".$Agendamento->getFkClienteId()."', fk_servico_id='".$Agendamento->getFkServicoId()."', 
                 data_agendada='".$Agendamento->getDataAgendada()."', hora_agendada='".$Agendamento->getHoraAgendada()."', status='".$Agendamento->getStatus()."' 
-                WHERE id='".$Cliente->getId()."'";
+                WHERE id='".$Agendamento->getId()."'";
         if($this->conn->query($sql) === TRUE) {
             $status = ["status"=>"sucesso"];
         } else {
