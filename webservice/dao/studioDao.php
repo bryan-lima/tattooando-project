@@ -24,7 +24,7 @@ class StudioDao {
         if($result->num_rows > 0) {
             $studios = [];
             while($row = $result->fetch_assoc()) {
-                $studio = ["id"=>$row["id"], "tipoUsuario"=>$row["tipo_usuario"], "nome"=>$row["nome"], "cnpj"=>$row["cnpj"], "nascimento"=>$row["nascimento"], "telefone"=>$row["telefone"], "email"=>$row["email"], "senha"=>$row["senha"], "fkEnderecoId"=>$row["fk_endereco_id"]];
+                $studio = ["id"=>$row["id"], "tipoUsuario"=>$row["tipo_usuario"], "nome"=>$row["nome"], "cnpj"=>$row["cnpj"], "telefone"=>$row["telefone"], "email"=>$row["email"], "senha"=>$row["senha"], "fkEnderecoId"=>$row["fk_endereco_id"]];
                 array_push($studios, $studio);
             }
             echo json_encode($studios);
