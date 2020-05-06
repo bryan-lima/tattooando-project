@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bryan-lima/tattooando-project#readme",
   "dependencies": {
-    "bootstrap": "^4.0.0-beta.2"
+    "bootstrap": "^4.0.0-beta.2",
+    "jquery": "^3.5.1"
   }
 }
