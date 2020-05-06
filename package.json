@@ -1,0 +1,22 @@
+{
+  "name": "tattooando-project",
+  "version": "1.0.0",
+  "description": "Projeto acadêmico pelo Centro Universitário Etep - Campus Bilac, São José dos Campos/SP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryan-lima/tattooando-project.git"
+  },
+  "author": "Bryan Lima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bryan-lima/tattooando-project/issues"
+  },
+  "homepage": "https://github.com/bryan-lima/tattooando-project#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2"
+  }
+}
