@@ -1,0 +1,26 @@
+/**************************************************************************************
+*
+* Desenvolvido por BRYAN LIMA
+* GitHub: https://github.com/bryan-lima
+*
+* Análise e Desenvolvimento de Sistemas - ADS
+* Projeto Acadêmico - Tattooando: Agendamento de serviços de tatuagem
+* Repositório deste projeto: https://github.com/bryan-lima/tattooando-project
+*
+**************************************************************************************/
+
+.bg-black {
+    background-color: black;
+}
+  
+.bg-gray-dark {
+    background-color: #222;
+}
+  
+.bg-gray-light {
+    background-color: #666666;
+}
+  
+.text-gray-light {
+    color: #666666;
+}
