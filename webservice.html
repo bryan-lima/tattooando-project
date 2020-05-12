@@ -37,6 +37,36 @@
     <meta name="author" content="Bryan Lima">
 </head>
 <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-black">
+        <!-- Nome/Logo -->
+        <a class="navbar-brand d-md-none mb-0 mx-auto" href="index.html">Tattooando</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite" aria-controls="navbarSite" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu colapsado -->
+        <div class="collapse navbar-collapse" id="navbarSite">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link ml-3" href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(página atual)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link ml-3" href="#"><i class="fas fa-globe"></i> Webservice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ml-3" href="#"><i class="fas fa-info-circle"></i> Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Link para GitHub Repo que é exibido quando dimensão da tela é menor que md -->
+                    <a class="nav-link ml-3 d-block d-md-none" href="https://github.com/bryan-lima/tattooando-project"><i class="fab fa-github"></i> GitHub Repo</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Link para GitHub Repo que é exibido quando dimensão da tela é igual ou maior que md -->
+        <a class="btn btn-light d-none d-md-block mb-0 mr-auto" href="https://github.com/bryan-lima/tattooando-project"><i class="fab fa-github"></i> GitHub Repo</a>
+    </nav>
 
     <!-- Scripts -->
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
