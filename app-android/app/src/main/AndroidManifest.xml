@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Cliente.HomeClienteActivity"></activity>
+        <activity android:name=".Studio.HomeStudioActivity"></activity>
+        <activity android:name=".Cliente.HomeClienteActivity" />
         <activity android:name=".Studio.CadastroStudioActivity" />
         <activity android:name=".Cliente.CadastroClienteActivity" />
         <activity android:name=".Studio.LoginStudioActivity" />
