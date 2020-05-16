@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.tattooando.project.R;
+
 public class CadastroStudioActivity extends AppCompatActivity {
 
     @Override
