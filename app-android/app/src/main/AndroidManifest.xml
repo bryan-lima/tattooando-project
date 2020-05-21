@@ -9,16 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Studio.PerfilStudioActivity"></activity>
-        <activity android:name=".Cliente.PerfilClienteActivity" />
-        <activity android:name=".Studio.HomeStudioActivity" />
-        <activity android:name=".Cliente.HomeClienteActivity" />
-        <activity android:name=".Studio.CadastroStudioActivity" />
-        <activity android:name=".Cliente.CadastroClienteActivity" />
-        <activity android:name=".Studio.LoginStudioActivity" />
-        <activity android:name=".Cliente.LoginClienteActivity" />
-        <activity android:name=".TipoLoginActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".Studio.PerfilStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Cliente.PerfilClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Studio.HomeStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Cliente.HomeClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Studio.CadastroStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Cliente.CadastroClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Studio.LoginStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Cliente.LoginClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".TipoLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
