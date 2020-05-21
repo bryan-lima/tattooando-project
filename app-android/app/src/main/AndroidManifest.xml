@@ -28,7 +28,8 @@
         <activity android:name=".TipoLoginActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".SplashScreenActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/AppCompat.TelaCheia" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
