@@ -21,7 +21,7 @@
         android:textSize="26sp"
         app:backgroundTint="?attr/colorPrimary"
         app:elevation="2dp"
-        app:icon="@drawable/ic_person_white"
+        app:icon="@drawable/ic_perfil"
         app:iconGravity="start"
         app:iconPadding="4dp"
         app:iconSize="24dp"
