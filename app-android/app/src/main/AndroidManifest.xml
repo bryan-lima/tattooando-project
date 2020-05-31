@@ -8,8 +8,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Studio.SobreStudioActivity"></activity>
-        <activity android:name=".Cliente.SobreClienteActivity" />
+        <activity
+            android:name=".Cliente.HomeClienteActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Studio.SobreStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Cliente.SobreClienteActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Studio.PerfilStudioActivity"
             android:screenOrientation="portrait" />
@@ -18,9 +27,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Studio.HomeStudioActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Cliente.HomeClienteActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Studio.CadastroStudioActivity"
