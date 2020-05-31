@@ -46,6 +46,7 @@ public class TipoLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(context, LoginClienteActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -54,6 +55,7 @@ public class TipoLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(context, LoginStudioActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
