@@ -8,27 +8,39 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Studio.PerfilStudioActivity"
+        <activity android:name=".Studio.SobreStudioActivity"></activity>
+        <activity android:name=".Cliente.SobreClienteActivity" />
+        <activity
+            android:name=".Studio.PerfilStudioActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Cliente.PerfilClienteActivity"
+        <activity
+            android:name=".Cliente.PerfilClienteActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Studio.HomeStudioActivity"
+        <activity
+            android:name=".Studio.HomeStudioActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Cliente.HomeClienteActivity"
+        <activity
+            android:name=".Cliente.HomeClienteActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Studio.CadastroStudioActivity"
+        <activity
+            android:name=".Studio.CadastroStudioActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Cliente.CadastroClienteActivity"
+        <activity
+            android:name=".Cliente.CadastroClienteActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Studio.LoginStudioActivity"
+        <activity
+            android:name=".Studio.LoginStudioActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Cliente.LoginClienteActivity"
+        <activity
+            android:name=".Cliente.LoginClienteActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".TipoLoginActivity"
+        <activity
+            android:name=".TipoLoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".SplashScreenActivity"
+        <activity
+            android:name=".SplashScreenActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppCompat.TelaCheia" >
+            android:theme="@style/AppCompat.TelaCheia">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
