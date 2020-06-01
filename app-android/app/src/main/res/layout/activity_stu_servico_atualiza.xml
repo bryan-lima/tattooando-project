@@ -16,6 +16,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="20dp"
             android:text="@string/edite_servico"
             android:textSize="24dp" />
 
