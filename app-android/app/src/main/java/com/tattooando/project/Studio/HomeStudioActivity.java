@@ -166,7 +166,7 @@ public class HomeStudioActivity extends AppCompatActivity
             startActivity(intent);
             finish();
         } else if (id == R.id.nav_stu_historico) {
-            Intent intent = new Intent(context, HomeStudioActivity.class);
+            Intent intent = new Intent(context, HistoricoStudioActivity.class);
             startActivity(intent);
             finish();
         } else if (id == R.id.nav_stu_lst_servicos) {
