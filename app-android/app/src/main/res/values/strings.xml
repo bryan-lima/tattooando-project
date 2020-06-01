@@ -39,6 +39,13 @@
     <string name="hor_func_fim">Às</string>
     <string name="hor_func_fechado">Fechado</string>
 
+    <string name="informe_servico">Informe o serviço e preço</string>
+    <string name="edite_servico">Edite serviço, preço e tempo médio</string>
+    <string name="nome_servico">Nome Serviço</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="preco">Preço</string>
+    <string name="tempo_medio">Tempo Médio (em min)</string>
+
     <string name="title_activity_home">Home</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
