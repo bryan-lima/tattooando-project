@@ -11,6 +11,6 @@ public class HorarioFuncActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_horario_func);
+        setContentView(R.layout.activity_stu_horario_func);
     }
 }
