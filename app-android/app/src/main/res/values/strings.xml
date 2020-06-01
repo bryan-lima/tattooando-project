@@ -32,11 +32,12 @@
     <string name="cep">CEP</string>
     <string name="cidade">Cidade</string>
     <string name="estado">Estado</string>
+
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Tattooando</string>
+    <string name="nav_header_subtitle">Agende sua próxima tattoo</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
