@@ -9,8 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Studio.ServicoAdicionaActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Studio.ServicoListaActivity"
-             android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Studio.HorarioFuncActivity"
             android:screenOrientation="portrait" />
