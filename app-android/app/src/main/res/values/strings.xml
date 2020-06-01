@@ -39,7 +39,7 @@
     <string name="hor_func_fim">Às</string>
     <string name="hor_func_fechado">Fechado</string>
 
-    <string name="informe_servico">Informe o serviço e preço</string>
+    <string name="informe_servico">Informe o serviço, preço e tempo médio</string>
     <string name="edite_servico">Edite serviço, preço e tempo médio</string>
     <string name="nome_servico">Nome Serviço</string>
     <string name="adicionar">Adicionar</string>
