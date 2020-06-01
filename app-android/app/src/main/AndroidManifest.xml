@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tattooando.project">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logo_app_white_background_black"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Studio.ServicoAtualizaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Studio.ServicoAdicionaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Studio.ServicoListaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Studio.HorarioFuncActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Studio.HomeStudioActivity"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Cliente.HomeClienteActivity"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Studio.SobreStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Cliente.SobreClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Studio.PerfilStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Cliente.PerfilClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Studio.CadastroStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Cliente.CadastroClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Studio.LoginStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Cliente.LoginClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TipoLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppCompat.TelaCheia">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

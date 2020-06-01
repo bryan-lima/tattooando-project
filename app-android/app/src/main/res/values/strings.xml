@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Tattooando</string>
+    <string name="versao_app">Versão 1.0</string>
+    <string name="sobre_app">O propósito do aplicativo Tattooando desenvolvido pelo grupo de Faculdade, é facilitar a procura e agendamento de serviços de tatuagens mais proximos, com o intuito de ser uma plataforma simples e fácil de se navegar.</string>
+
+    <string name="sou_cliente">Sou Cliente</string>
+    <string name="sou_studio">Sou Studio</string>
+
+    <string name="login">Login</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="esqueceu_senha">Esqueceu a senha?</string>
+
+    <string name="sobre">Sobre</string>
+    <string name="sobre_cli">Olá amantes de tattoo!</string>
+    <string name="sobre_stu">Olá tatuadores!</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="voltar">Voltar</string>
+
+    <string name="nome">Nome</string>
+    <string name="studio">Nome Studio</string>
+    <string name="cpf">CPF</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="nascimento">Data de Nascimento</string>
+    <string name="telefone">Telefone</string>
+    <string name="endereco">Endereço</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="num_residencia">Número</string>
+    <string name="bairro">Bairro</string>
+    <string name="cep">CEP</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+
+    <string name="hor_func">Horário de Funcionamento</string>
+    <string name="dias_semana">Segunda à Sexta</string>
+    <string name="fim_semana_feriados">Sábado, Domingo e Feriados</string>
+    <string name="hor_func_inicio">Das</string>
+    <string name="hor_func_fim">Às</string>
+    <string name="hor_func_fechado">Fechado</string>
+
+    <string name="informe_servico">Informe o serviço e preço</string>
+    <string name="edite_servico">Edite serviço, preço e tempo médio</string>
+    <string name="nome_servico">Nome Serviço</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="preco">Preço</string>
+    <string name="tempo_medio">Tempo Médio (em min)</string>
+
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Tattooando</string>
+    <string name="nav_header_subtitle_cli">Agende sua próxima tattoo</string>
+    <string name="nav_header_subtitle_stu">Agende seu próximo cliente</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_agendamento">Agendamento</string>
+    <string name="menu_historico">Histórico</string>
+    <string name="menu_lst_servicos">Listar Serviços</string>
+    <string name="menu_add_servico">Adicionar Serviço</string>
+    <string name="menu_hor_func">Horário de Funcionamento</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_sobre">Sobre</string>
+    <string name="menu_sair">Sair</string>
+</resources>
