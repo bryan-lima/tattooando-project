@@ -99,7 +99,7 @@ public class HomeClienteActivity extends AppCompatActivity
         // ActionBar actionBar = getSupportActionBar(); // Instancia objeto da BAR
     }
 
-    private void  alertDialog(String strTitle, String strMsg){
+    private void alertDialog(String strTitle, String strMsg){
         new AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert)
                 .setTitle(strTitle)
                 .setMessage(strMsg)
@@ -169,11 +169,11 @@ public class HomeClienteActivity extends AppCompatActivity
             startActivity(intent);
             finish();
         } else if (id == R.id.nav_cli_agendamento) {
-            Intent intent = new Intent(context, HomeClienteActivity.class);
+            Intent intent = new Intent(context, AgendamentoClienteActivity.class);
             startActivity(intent);
             finish();
         } else if (id == R.id.nav_cli_historico) {
-            Intent intent = new Intent(context, HomeClienteActivity.class);
+            Intent intent = new Intent(context, HistoricoClienteActivity.class);
             startActivity(intent);
             finish();
         } else if (id == R.id.nav_cli_perfil) {
