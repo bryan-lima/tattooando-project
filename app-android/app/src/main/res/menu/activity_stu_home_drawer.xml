@@ -3,36 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/menu_stu_topo"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_stu_home"
+            android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_stu_historico"
+            android:icon="@drawable/ic_historico"
+            android:title="@string/menu_historico" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_stu_lst_servicos"
+            android:icon="@drawable/ic_list"
+            android:title="@string/menu_lst_servicos" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_stu_add_servicos"
+            android:icon="@drawable/ic_edit"
+            android:title="@string/menu_add_servico" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
+    <group
+        android:id="@+id/menu_stu_abaixo"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_stu_perfil"
+            android:icon="@drawable/ic_perfil"
+            android:title="@string/menu_perfil" />
+        <item
+            android:id="@+id/nav_stu_hor_func"
+            android:icon="@drawable/ic_clock"
+            android:title="@string/menu_hor_func" />
+        <item
+            android:id="@+id/nav_stu_sobre"
+            android:icon="@drawable/ic_info"
+            android:title="@string/menu_sobre" />
+        <item
+            android:id="@+id/nav_stu_sair"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/menu_sair" />
+    </group>
 
 </menu>
