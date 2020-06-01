@@ -13,6 +13,12 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="Fab" parent="AppTheme">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
