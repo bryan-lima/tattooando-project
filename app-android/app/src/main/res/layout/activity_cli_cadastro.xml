@@ -213,7 +213,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_margin="20dp"
-                android:text="@string/atualizar"
+                android:text="@string/cadastrar"
                 android:backgroundTint="@color/colorBlack"/>
         </RelativeLayout>
 
