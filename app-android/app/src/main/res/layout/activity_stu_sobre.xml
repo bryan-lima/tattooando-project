@@ -50,7 +50,7 @@
 
     <Button
         android:id="@+id/stu_sob_btn_voltar"
-        android:layout_width="100dp"
+        android:layout_width="110dp"
         android:layout_height="46dp"
         android:layout_marginBottom="32dp"
         android:background="@color/colorPrimary"
