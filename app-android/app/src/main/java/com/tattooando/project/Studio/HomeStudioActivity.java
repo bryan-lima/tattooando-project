@@ -184,6 +184,10 @@ public class HomeStudioActivity extends AppCompatActivity
             Intent intent = new Intent(context, PerfilStudioActivity.class);
             startActivity(intent);
             finish();
+        } else if (id == R.id.nav_stu_hor_func) {
+            Intent intent = new Intent(context, HorarioFuncActivity.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.nav_stu_sobre) {
             Intent intent = new Intent(context, SobreStudioActivity.class);
             startActivity(intent);
