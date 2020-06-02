@@ -14,9 +14,11 @@
     </style>
 
     <style name="Fab" parent="AppTheme">
-        <item name="colorPrimary">@android:color/white</item>
-        <item name="colorPrimaryDark">@android:color/white</item>
-        <item name="colorAccent">@android:color/white</item>
+        <!-- Altera cor de fundo do botão FAB -
+        Mais informações em: https://material.io/components/buttons-floating-action-button#theming -->
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <!-- Altera cor do ícone do botão FAB -->
+        <item name="colorOnSecondary">@android:color/white</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
