@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Cliente.PesquisarStudioActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Studio.HistoricoStudioActivity"
             android:screenOrientation="portrait" />
         <activity
