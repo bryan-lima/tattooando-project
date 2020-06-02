@@ -49,10 +49,11 @@ public class HomeClienteActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Agendar nova tattoo", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Intent intent = new Intent(context, HomeClienteActivity.class);
+//                Snackbar.make(view, "Agendar nova tattoo", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                Intent intent = new Intent(context, AgendamentoClienteActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

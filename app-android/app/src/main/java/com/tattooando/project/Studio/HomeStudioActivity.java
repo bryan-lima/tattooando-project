@@ -48,8 +48,11 @@ public class HomeStudioActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Adicionar novo serviço", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Adicionar novo serviço", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                Intent intent = new Intent(context, ServicoAdicionaActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
